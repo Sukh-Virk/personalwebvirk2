@@ -1,0 +1,86 @@
+/* Marquee Container */
+.marquee-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+/* Blog Section Title */
+.blog-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff6ec7;
+  text-shadow: 0 0 10px rgba(255, 110, 199, 0.4);
+}
+
+body.light-mode .blog-title {
+  color: #d81b60;
+  text-shadow: none;
+}
+
+/* Marquee: visible area */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Marquee track: this is the moving container */
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  /* Animate the track continuously to the left */
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Each blog card styling */
+.blog-card {
+  flex: 0 0 300px; /* Fixed width so exactly 3 cards are visible */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 15px;
+  color: white;
+  border: 2px solid rgba(255, 20, 147, 0.3);
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+  text-decoration: none;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
+}
+
+body.light-mode .blog-card {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c3e50;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .blog-card:hover {
+  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+}
+
+/* Keyframes for continuous leftward scrolling */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .marquee-container {
+    width: 95%;
+  }
+  .blog-card {
+    flex: 0 0 300px;
+    padding: 15px;
+  }
+}
