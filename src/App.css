@@ -287,7 +287,7 @@ nav ul li a:hover {
   }
 }
 
-/* 🌈 Animated Background (Stays the Same) */
+/* 🌈 Animated Background */
 #about::before {
   content: "";
   position: absolute;
@@ -301,22 +301,30 @@ nav ul li a:hover {
   animation: aboutBackground 12s infinite alternate ease-in-out;
   opacity: 0.9;
   border-radius: 10px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Background animation */
+/* Smooth gradient animation */
 @keyframes aboutBackground {
   0% { background-position: 0% 50%; }
   50% { background-position: 50% 100%; }
   100% { background-position: 100% 50%; }
 }
 
-/* 🖼️ About Me Container */
+/* Hide gradient on light mode */
+.light-mode #about::before {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+}
+
+/* 🖼️ About Section */
 .about-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 30px;
-  padding: 50px 20px; /* Less padding on mobile */
+  padding: 50px 30px; /* Added more space left & right */
   background: rgba(255, 255, 255, 0.1);
   border-radius: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -333,6 +341,7 @@ nav ul li a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  margin: 0 auto; /* centers card better on narrow screens */
 }
 
 .about-part:hover {
@@ -353,13 +362,13 @@ nav ul li a:hover {
   color: #c9d6ff;
 }
 
-/* Strong highlight */
+/* Highlighted text */
 .about-part p strong {
   color: #ffc107;
   font-weight: bold;
 }
 
-/* Profile Image Styling */
+/* Profile Image */
 .rounded-image {
   width: 180px;
   height: 180px;
@@ -375,12 +384,12 @@ nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* Fully Responsive */
+/* 📱 Responsive Fix */
 @media (max-width: 768px) {
   .about-section {
     flex-direction: column;
     text-align: center;
-    padding: 30px 10px;
+    padding: 30px 20px; /* tighter padding but still with right space */
   }
 
   .about-part {
