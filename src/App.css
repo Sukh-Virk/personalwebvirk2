@@ -26,6 +26,12 @@ body::before {
   animation: moveBackground 30s infinite alternate ease-in-out;
 }
 
+.marquee-container {
+  margin-bottom: 200px; /* Increase this value to add more space */
+}
+
+
+
 @keyframes moveBackground {
   0% {
     background-position: 0% 50%;
