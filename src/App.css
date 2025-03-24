@@ -30,6 +30,15 @@ body::before {
   margin-bottom: 200px; /* Increase this value to add more space */
 }
 
+.fire-text {
+  padding-top: 70px;
+  margin-top: 100px;
+  font-size: 2.5rem;
+  color: #ff6ec7;
+  text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
+  margin-bottom: 20px;
+}
+
 
 
 @keyframes moveBackground {
