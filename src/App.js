@@ -332,7 +332,7 @@ function App() {
   </h2>
   <p
     style={{
-      paddingBottom: "150px",
+      paddingTop: "150px",
       textAlign: "center",
       fontSize: "1.2rem",
       color: darkMode ? "#c9d6ff" : "#37474f",
