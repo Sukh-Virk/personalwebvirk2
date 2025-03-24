@@ -42,7 +42,6 @@ function GithubStatsChart({ theme }) {
     width: "100%",
     height: 400,
     padding: "20px",
-    marginTop: "200px", // <-- Added margin-top here
     borderRadius: "10px",
     background: darkMode ? "#0d1117" : "#ffffff",
     boxShadow: darkMode
@@ -51,13 +50,14 @@ function GithubStatsChart({ theme }) {
     transition: "all 0.3s ease",
   }}
 >
-      <h2
-        style={{
-          textAlign: "center",
-          color: darkMode ? "#00ffcc" : "#2c3e50",
-          fontFamily: "'Courier New', monospace",
-        }}
-      >
+     <h2
+  style={{
+    textAlign: "center",
+    color: darkMode ? "#00ffcc" : "#2c3e50",
+    fontFamily: "'Courier New', monospace",
+    marginTop: "200px", // Added margin to the heading
+  }}
+>
         📊 GitHub Stats
       </h2>
       {loading ? (
