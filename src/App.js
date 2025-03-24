@@ -325,8 +325,6 @@ function App() {
   viewport={{ once: false, amount: 0.3 }}
   transition={{ duration: 0.8, ease: "easeOut" }}
   style={{
-    paddingTop: "150px",
-    paddingBottom: "150px",
   }}
 >
   <h2 className="glitch-text1" data-text="GitHub Stats">
@@ -335,7 +333,6 @@ function App() {
   <p
     style={{
       paddingTop: "150px",
-    paddingBottom: "150px",
       textAlign: "center",
       fontSize: "1.2rem",
       color: darkMode ? "#c9d6ff" : "#37474f",
