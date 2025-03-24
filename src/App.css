@@ -1254,17 +1254,7 @@ body.dark-mode .contact-form textarea {
   text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
 }
 
-@keyframes glitch-anim {
-  0% {
-    clip-path: inset(10% 0 85% 0);
-  }
-  50% {
-    clip-path: inset(20% 0 70% 0);
-  }
-  100% {
-    clip-path: inset(85% 0 10% 0);
-  }
-}
+
 
 
 .terminal {
@@ -1412,40 +1402,21 @@ body.light-mode .prompt {
 }
 
 .glitch-text1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  color: white;
+
   position: relative;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px auto;
-  animation: glitch1 2s infinite alternate;
+  color: #ff6ec7;
   text-shadow: 0 0 8px #00ffc8, 0 0 15px #ff00ff;
 }
 
-.glitch-text1::before,
-.glitch-text1::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
 
-.glitch-text1::before {
-  left: 3px;
- color: #ff6ec7;
-  text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
-}
-
-.glitch-text1::after {
-  left: -3px;
-  color: #ff6ec7;
-  text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
-}
+=
 .fire-text {
   font-size: 2.3rem;
   font-weight: bold;
