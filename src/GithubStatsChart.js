@@ -55,7 +55,7 @@ function GithubStatsChart({ theme }) {
     textAlign: "center",
     color: darkMode ? "#00ffcc" : "#2c3e50",
     fontFamily: "'Courier New', monospace",
-    marginTop: "200px", // Added margin to the heading
+  
   }}
 >
         📊 GitHub Stats
