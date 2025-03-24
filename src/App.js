@@ -328,11 +328,12 @@ function App() {
   }}
 >
   <h2 className="glitch-text1" data-text="GitHub Stats">
+    paddingTop: "150px",
     GitHub Stats
   </h2>
   <p
     style={{
-      paddingTop: "150px",
+    
       textAlign: "center",
       fontSize: "1.2rem",
       color: darkMode ? "#c9d6ff" : "#37474f",
