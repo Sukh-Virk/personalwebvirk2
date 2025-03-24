@@ -317,29 +317,33 @@ function App() {
             <Blog />
           </motion.div>
 
-          {/* GitHub Stats Section */}
-          <motion.section
-            id="stats"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h2 className="glitch-text1" data-text="GitHub Stats">
-              GitHub Stats
-            </h2>
-            <p
-              style={{
-                textAlign: "center",
-                fontSize: "1.2rem",
-                color: darkMode ? "#c9d6ff" : "#37474f",
-              }}
-            >
-              Feel free to follow me on GitHub! These are live stats from my
-              GitHub profile. 📊✨
-            </p>
-            <GithubStatsChart theme={darkMode ? "dark" : "light"} />
-          </motion.section>
+        {/* GitHub Stats Section */}
+<motion.section
+  id="stats"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  style={{
+    paddingTop: "150px",
+    paddingBottom: "150px",
+  }}
+>
+  <h2 className="glitch-text1" data-text="GitHub Stats">
+    GitHub Stats
+  </h2>
+  <p
+    style={{
+      textAlign: "center",
+      fontSize: "1.2rem",
+      color: darkMode ? "#c9d6ff" : "#37474f",
+    }}
+  >
+    Feel free to follow me on GitHub! These are live stats from my GitHub profile. 📊✨
+  </p>
+  <GithubStatsChart theme={darkMode ? "dark" : "light"} />
+</motion.section>
+
 
           {/* Contact Section */}
           <motion.section
