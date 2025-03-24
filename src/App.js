@@ -305,17 +305,19 @@ function App() {
             </div>
           </motion.section>
 
-          {/* Blog Section */}
-          <motion.div
-            id="blog"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <Particles />
-            <Blog />
-          </motion.div>
+         {/* Blog Section */}
+<motion.div
+  id="blog"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  style={{ marginBottom: "200px" }} // <-- Added margin here
+>
+  <Particles />
+  <Blog />
+</motion.div>
+
 
         {/* GitHub Stats Section */}
 <motion.section
@@ -328,7 +330,7 @@ function App() {
   }}
 >
   <h2 className="glitch-text1" data-text="GitHub Stats">
-    paddingTop: "150px",
+ 
     GitHub Stats
   </h2>
   <p
@@ -339,7 +341,7 @@ function App() {
       color: darkMode ? "#c9d6ff" : "#37474f",
     }}
   >
-    Feel free to follow me on GitHub! These are live stats from my GitHub profile. 📊✨
+  
   </p>
   <GithubStatsChart theme={darkMode ? "dark" : "light"} />
 </motion.section>
