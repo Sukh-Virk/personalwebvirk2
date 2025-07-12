@@ -1,8 +1,7 @@
-// blog.js
+// Blog.js
 import React from "react";
 import "./BlogCarousel.css";
 
-// Sample blog data (3 blogs)
 const blogs = [
   {
     title: "My Journey With Math",
@@ -24,32 +23,26 @@ const blogs = [
   },
 ];
 
-// Duplicate the blogs array for a seamless scrolling effect
-const repeatedBlogs = blogs.concat(blogs);
-
-function Blog() {
+const Blog = () => {
   return (
-    <section className="marquee-container">
-      <h2 className="blog-title">My Blogs</h2>
-      <div className="marquee">
-        <div className="marquee-track">
-          {repeatedBlogs.map((blog, idx) => (
-            <a
-              key={idx}
-              href={blog.link}
-              className="blog-card"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h3>{blog.title}</h3>
-              <p>{blog.date}</p>
-              <p>{blog.content}</p>
-            </a>
-          ))}
-        </div>
+    <section className="blog-section" id="blog">
+      <h2 className="blog-title">My Blogs!</h2>
+      <div className="blog-grid">
+        {blogs.map((blog, index) => (
+          <a
+            href={blog.link}
+            key={index}
+            className="blog-card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h3>{blog.title}</h3>
+            <p className="blog-date">{blog.date}</p>
+            <p className="blog-content"><strong>{blog.content}</strong></p>
+          </a>
+        ))}
       </div>
     </section>
   );
-}
-
+};
 export default Blog;

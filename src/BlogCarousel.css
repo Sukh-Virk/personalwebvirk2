@@ -1,86 +1,94 @@
-/* Marquee Container */
-.marquee-container {
-  width: 80%;
-  margin: 0 auto;
+/* Updated Blog.css */
+.blog-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
   padding: 2rem 0;
-  overflow: hidden;
 }
 
-/* Blog Section Title */
 .blog-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   color: #ff6ec7;
   text-shadow: 0 0 10px rgba(255, 110, 199, 0.4);
 }
 
-body.light-mode .blog-title {
-  color: #d81b60;
-  text-shadow: none;
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
 }
 
-/* Marquee: visible area */
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Marquee track: this is the moving container */
-.marquee-track {
-  display: flex;
-  gap: 20px;
-  /* Animate the track continuously to the left */
-  animation: scroll-left 20s linear infinite;
-}
-
-/* Each blog card styling */
 .blog-card {
-  flex: 0 0 300px; /* Fixed width so exactly 3 cards are visible */
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 15px;
-  color: white;
-  border: 2px solid rgba(255, 20, 147, 0.3);
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
+  background: rgba(30, 30, 40, 0.7); /* Less dark background */
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #a0e0ff; /* Light blue text */
+  border: 2px solid #ff6ec7; /* Pink outline */
+  box-shadow: 0 4px 20px rgba(255, 110, 199, 0.3);
+  transition: all 0.3s ease;
   text-decoration: none;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .blog-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 110, 199, 0.5);
+  background: rgba(40, 40, 50, 0.8); /* Slightly lighter on hover */
 }
 
+.blog-card h3 {
+  margin-bottom: 1rem;
+  color: #ff6ec7; /* Pink headers */
+  font-size: 1.4rem;
+}
+
+.blog-excerpt {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #a0e0ff; /* Light blue text */
+}
+
+.blog-date {
+  font-size: 0.9rem;
+  color: #88c0d0; /* Lighter blue for dates */
+  margin-top: 1rem;
+}
+
+/* Light Mode Styles */
 body.light-mode .blog-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(240, 240, 250, 0.9);
   color: #2c3e50;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid #d81b60; /* Darker pink in light mode */
 }
 
-body.light-mode .blog-card:hover {
-  box-shadow: 0 0 20px rgba(0, 188, 212, 0.3);
+body.light-mode .blog-card h3 {
+  color: #d81b60;
 }
 
-/* Keyframes for continuous leftward scrolling */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+body.light-mode .blog-excerpt {
+  color: #2c3e50;
 }
 
+body.light-mode .blog-date {
+  color: #4a6fa5;
+}
+
+.blog-intro {
+  text-align: center;
+  color: #a0e0ff;
+  margin: 0 auto 2rem;
+  max-width: 600px;
+  font-size: 1.1rem;
+}
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .marquee-container {
-    width: 95%;
+  .blog-grid {
+    grid-template-columns: 1fr;
   }
+  
   .blog-card {
-    flex: 0 0 300px;
-    padding: 15px;
+    padding: 1.2rem;
   }
 }

@@ -231,78 +231,111 @@ nav ul li a:hover {
   position: relative;
   overflow: hidden;
 }
-
+/* Hero Section */
 .hero {
   display: flex;
-  flex-direction: column; /* Stack content vertically */
+  flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center vertically */
-  gap: 20px;
-  padding: 100px 10%;
+  justify-content: center;
   min-height: 100vh;
   text-align: center;
+  padding: 2rem;
+  position: relative;
 }
 
 .hero-content {
   max-width: 800px;
-  margin-bottom: 20px;
+  z-index: 1;
 }
 
 .hero-content h1 {
   font-size: 3rem;
-  font-weight: bold;
+  margin-bottom: 1rem;
   color: #ff6ec7;
   text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
 }
 
 .hero-content p {
-  margin-top: 20px;
+  font-size: 1.5rem;
+  margin: 2rem 0;
   color: #c9d6ff;
-  font-size: 1.2rem;
-  line-height: 1.5;
 }
 
-.hero .buttons {
+/* Buttons Container */
+.buttons-container {
   display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
-  justify-content: center;
 }
 
-.hero-image {
-  display: flex;
-  justify-content: center;
+/* Button Base Styles */
+.button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 180px; /* Fixed width */
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.hero-image img {
-  width: 280px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-  max-width: 100%;
-  height: auto;
+/* Pink Button */
+.button-pink {
+  background: #ff6ec7;
 }
 
-.hero-image img:hover {
-  transform: scale(1.05);
+/* Blue Button */
+.button-blue {
+  background: #4da8da;
 }
 
-/* Adjust for smaller screens */
+/* Hover Effects */
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
   }
-
+  
   .hero-content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
-  .hero-image img {
-    width: 200px;
+  .buttons-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    width: 160px;
+    padding: 0.7rem 1.2rem;
   }
 }
 
+@media (max-width: 480px) {
+  .buttons-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    width: 200px;
+    max-width: 100%;
+  }
+}
 /* 🌈 Animated Background */
 #about::before {
   content: "";
@@ -731,175 +764,245 @@ footer {
 }
 
 .large-card {
-  background: rgba(0, 0, 0, 0.85);
-  color: white;
+  background: rgba(30, 30, 40, 0.7); /* Less dark background */
+  color: #a0e0ff; /* Light blue text */
   padding: 20px;
   border-radius: 15px;
   font-size: 1rem;
-  width: 48%; /* Two columns on larger screens */
-  box-shadow: 0 0 20px rgba(255, 20, 147, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  width: 48%;
+  box-shadow: 0 0 20px rgba(255, 110, 199, 0.3);
+  transition: all 0.4s ease;
+  border: 2px solid #ff6ec7; /* Pink border */
   position: relative;
   overflow: hidden;
-  border: 2px solid rgba(255, 20, 147, 0.3);
 }
 
 .large-card h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  color: #ff6ec7; /* Pink title */
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.large-card h3::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  background: #ff6ec7;
+  margin: 8px auto 0;
+  opacity: 0.5;
 }
 
 .large-card p {
   font-size: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  line-height: 1.6;
 }
 
 .large-card span {
   font-size: 0.9rem;
   font-style: italic;
-  color: #dcdcdc;
+  color: #88c0d0; /* Lighter blue */
+  display: block;
+  margin-top: 15px;
 }
 
 .large-card:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 20, 147, 0.8);
-  background: linear-gradient(
-    145deg,
-    rgba(0, 255, 234, 0.2),
-    rgba(255, 0, 150, 0.2)
-  );
-  border: 2px solid rgba(255, 20, 147, 0.8);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255, 110, 199, 0.5);
+  background: rgba(40, 40, 50, 0.8);
 }
 
-/* Responsive for Mobile */
+/* Light Mode */
+body.light-mode .large-card {
+  background: rgba(240, 240, 250, 0.9);
+  color: #2c3e50;
+  border-color: #d81b60;
+}
+
+body.light-mode .large-card h3 {
+  color: #d81b60;
+}
+
+body.light-mode .large-card span {
+  color: #4a6fa5;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .large-card {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
     padding: 15px;
-    font-size: 0.9rem;
   }
-
-  .experience-section {
-    padding: 10px;
+  
+  .large-card h3 {
+    font-size: 1.3rem;
   }
 }
-
-/* 3D Cube Section */
+/* Tech Stack Section */
 .tech-stack-section {
-  padding: 50px 10%;
+  position: relative;
+  padding: 80px 10%;
   text-align: center;
-  color: #333;
   overflow: hidden;
-  padding-bottom: 70px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  transform-style: preserve-3d;
 }
+
 
 .tech-stack-section h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  margin-bottom: 70px;
   color: #ff6ec7;
   text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
+  position: relative;
 }
 
+/* Cube Container */
 .cube-container {
   perspective: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  transform-style: preserve-3d;
 }
 
+/* Cube Base */
 .cube {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   position: relative;
   transform-style: preserve-3d;
-  animation: rotateCube 10s infinite linear;
+  animation: rotateCube 12s infinite linear;
+  transform-origin: center center -90px;
+  transition: transform 0.5s ease;
 }
 
+.cube:hover {
+  animation-play-state: paused;
+  transform: scale(1.1) rotateX(-15deg) rotateY(15deg);
+}
+
+/* Cube Faces */
 .cube-face {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  background: rgba(40, 40, 60, 0.95);
+  border: 3px solid #ff6ec7;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #333;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  color: #a0e0ff;
+  text-shadow: 0 0 8px rgba(160, 224, 255, 0.7);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(255, 110, 199, 0.4);
+  backface-visibility: visible;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  user-select: none;
 }
 
-/* Large Screen - 75px translateZ */
-.cube-face-front {
-  transform: rotateY(0deg) translateZ(75px);
+/* Cube Face Positions */
+.cube-face-front { 
+  transform: rotateY(0deg) translateZ(90px);
+  background: rgba(40, 40, 60, 0.95);
 }
-.cube-face-back {
-  transform: rotateY(180deg) translateZ(75px);
+.cube-face-back { 
+  transform: rotateY(180deg) translateZ(90px);
+  background: rgba(50, 50, 70, 0.95);
 }
-.cube-face-left {
-  transform: rotateY(-90deg) translateZ(75px);
+.cube-face-left { 
+  transform: rotateY(-90deg) translateZ(90px);
+  background: rgba(60, 60, 80, 0.95);
 }
-.cube-face-right {
-  transform: rotateY(90deg) translateZ(75px);
+.cube-face-right { 
+  transform: rotateY(90deg) translateZ(90px);
+  background: rgba(70, 70, 90, 0.95);
 }
-.cube-face-top {
-  transform: rotateX(90deg) translateZ(75px);
+.cube-face-top { 
+  transform: rotateX(90deg) translateZ(90px);
+  background: rgba(80, 80, 100, 0.95);
 }
-.cube-face-bottom {
-  transform: rotateX(-90deg) translateZ(75px);
-}
-
-/* Small Screen - 50px translateZ */
-@media (max-width: 768px) {
-  .cube {
-    width: 100px;
-    height: 100px;
-  }
-
-  .cube-face {
-    font-size: 0.9rem;
-  }
-
-  .cube-face-front {
-    transform: rotateY(0deg) translateZ(50px);
-  }
-  .cube-face-back {
-    transform: rotateY(180deg) translateZ(50px);
-  }
-  .cube-face-left {
-    transform: rotateY(-90deg) translateZ(50px);
-  }
-  .cube-face-right {
-    transform: rotateY(90deg) translateZ(50px);
-  }
-  .cube-face-top {
-    transform: rotateX(90deg) translateZ(50px);
-  }
-  .cube-face-bottom {
-    transform: rotateX(-90deg) translateZ(50px);
-  }
+.cube-face-bottom { 
+  transform: rotateX(-90deg) translateZ(90px);
+  background: rgba(90, 90, 110, 0.95);
 }
 
+/* Animations */
 @keyframes rotateCube {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: rotateX(90deg) rotateY(0deg);
-  }
-  50% {
-    transform: rotateX(90deg) rotateY(90deg);
-  }
-  75% {
-    transform: rotateX(180deg) rotateY(90deg);
-  }
-  100% {
-    transform: rotateX(360deg) rotateY(360deg);
-  }
+  0% { transform: rotateX(-20deg) rotateY(20deg); }
+  25% { transform: rotateX(70deg) rotateY(90deg); }
+  50% { transform: rotateX(160deg) rotateY(180deg); }
+  75% { transform: rotateX(250deg) rotateY(270deg); }
+  100% { transform: rotateX(340deg) rotateY(360deg); }
 }
 
+/* Background Animation */
+.tech-background-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  border-radius: 10px;
+}
+
+@keyframes aboutBackground {
+  0% { background-position: 0% 50%; }
+ 100% { background-position: 100% 100%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Light Mode */
+.light-mode .tech-background-wrapper::before {
+  opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tech-stack-section {
+    padding: 50px 5%;
+  }
+  
+  .tech-background-wrapper {
+    padding: 30px 20px;
+  }
+  
+  .cube {
+    width: 120px;
+    height: 120px;
+    transform-origin: center center -60px;
+  }
+  
+  .cube-face {
+    font-size: 1.1rem;
+  }
+  
+  .cube-face-front { transform: rotateY(0deg) translateZ(60px); }
+  .cube-face-back { transform: rotateY(180deg) translateZ(60px); }
+  .cube-face-left { transform: rotateY(-90deg) translateZ(60px); }
+  .cube-face-right { transform: rotateY(90deg) translateZ(60px); }
+  .cube-face-top { transform: rotateX(90deg) translateZ(60px); }
+  .cube-face-bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+  .tech-stack-section h2 {
+    margin-bottom: 50px;
+    font-size: 2rem;
+  }
+  
+  .cube-container {
+    margin-top: 40px;
+  }
+}
 /* 🎯 General Reset */
 body,
 html {
@@ -1425,8 +1528,6 @@ body.light-mode .prompt {
   text-shadow: 0 0 8px #00ffc8, 0 0 15px #ff00ff;
 }
 
-
-=
 .fire-text {
   font-size: 2.3rem;
   font-weight: bold;
@@ -1435,4 +1536,411 @@ body.light-mode .prompt {
   text-shadow: 0 0 15px rgba(255, 110, 199, 0.6);
   display: block;
   margin: 20px auto;
+}
+
+/* ————————————————————————————— */
+/*  Languages / Frameworks & Libraries Section */
+/* ————————————————————————————— */
+.lang-grid-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--background-dark);
+}
+
+.lang-grid-section h2 {
+  color: #ff69b4;        /* pink title */
+  margin-bottom: 0.5rem;
+}
+
+.lang-grid-section p {
+  color: #ff69b4;        /* pink intro copy */
+  margin-bottom: 2rem;
+}
+
+/* ————————————————————————————— */
+/*  Grid layout */
+/* ————————————————————————————— */
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 2rem;                 /* larger gap between cards */
+  max-width: 1000px;         /* constrain width for better centering */
+  margin: 0 auto 3rem;       /* center grid and add bottom spacing */
+  justify-items: center;     /* center each card in its cell */
+}
+
+/* ————————————————————————————— */
+/*  Card styling */
+/* ————————————————————————————— */
+.lang-card {
+  background: #1e1e2e;
+  border: 2px solid #ff69b4; /* pink outline */
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lang-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.lang-card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.75rem;
+}
+
+.lang-card span {
+  color: #ff69b4;          /* pink label */
+  font-size: 0.95rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ————————————————————————————— */
+/*  Light-mode overrides */
+/* ————————————————————————————— */
+body.light-mode .lang-grid-section {
+  background: #f9f9f9;
+}
+
+body.light-mode .lang-grid-section h2,
+body.light-mode .lang-grid-section p {
+  color: #ff69b4;          /* keep pink text even in light mode */
+}
+
+body.light-mode .lang-card {
+  background: #fff;
+  border: 2px solid #ff69b4; /* pink outline stays */
+}
+
+body.light-mode .lang-card span {
+  color: #ff69b4;          /* pink label in light mode */
+}
+
+/* App.css */
+
+/* 1. Make the grid a little more compact */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+/* 2. Card container */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;          /* clip the image to the card */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+   outline: 2px solid #ff69b4;
+  outline-offset: -2px;
+}
+
+/* hover effect */
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* 3. Fixed‐height image window */
+.project-card img {
+  width: 100%;
+  height: 180px;             /* same height for all cards */
+  object-fit: cover;         /* crop & fill */
+  flex-shrink: 0;
+}
+
+/* 4. Text container within the card */
+.project-card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+p {
+  color: #C9D6FF;
+}
+.project-card-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.project-card-content p {
+  flex-grow: 1;              /* push link/button to bottom if you add one later */
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0;
+}
+/* If it’s a <canvas> element: */
+canvas {
+  display: none !important;
+}
+
+/* Or target its wrapper if it has a class, e.g.: */
+.floating-bg {
+  display: none !important;
+}
+/* Example: adding Coral to the Projects section */
+#projects {
+  --section-accent: #FF6F61;
+  --section-accent-rgb: 255,111,97;
+}
+
+/* Use it for buttons or highlights */
+#projects .button-primary {
+  background: var(--section-accent);
+}
+#projects .button-primary:hover {
+  box-shadow: 0 4px 15px rgba(var(--section-accent-rgb), 0.6);
+}
+
+/* Mint hover in Blog cards */
+#blog .blog-card:hover {
+  box-shadow: 0 8px 25px rgba(127,255,212,0.4);
+}
+
+/* Projects Section Light Mode */
+body.light-mode #projects {
+  background: #f5f7fa;
+}
+
+body.light-mode #projects h2 {
+  color: #d81b60; /* Deep pink for section title */
+}
+
+body.light-mode .project-intro {
+  color: #4a4a4a;
+}
+
+body.light-mode .project-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.light-mode .project-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+body.light-mode .project-card h3 {
+  color: #d81b60; /* Matching the section title */
+}
+
+body.light-mode .project-card p {
+  color: #4a4a4a;
+}
+
+body.light-mode .project-card .button-primary {
+  background: linear-gradient(135deg, #ff4081, #f48fb1);
+  color: white;
+}
+
+body.light-mode .project-card .button-primary:hover {
+  background: #d81b60;
+}
+
+body.light-mode .project-card .button-secondary {
+  background: linear-gradient(135deg, #80deea, #4dd0e1);
+  color: white;
+}
+
+body.light-mode .project-card .button-secondary:hover {
+  background: #26c6da;
+}
+
+/* Make sure project cards have good contrast in light mode */
+body.light-mode .project-card-content {
+  color: #333;
+}
+
+/* Adjust the outline color in light mode */
+body.light-mode .project-card {
+  outline: 2px solid #f48fb1; /* Lighter pink outline */
+  outline-offset: -2px;
+}
+
+
+/* For dark mode */
+.dark-mode-text {
+  color: #a0e0ff; /* Light blue */
+}
+
+/* For light mode */
+.light-mode-text {
+  color: #1e3c72; /* Dark blue - adjust as needed */
+}
+/* Find Me Section */
+.find-me-section {
+  padding: 5rem 0;
+  text-align: center;
+  background: var(--section-bg);
+}
+
+.find-me-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.connect-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+}
+
+.social-platforms {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.platform-card {
+  width: 160px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 15px var(--card-shadow);
+}
+
+.platform-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.platform-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+}
+
+.platform-card span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Instagram Styling */
+.instagram {
+  --card-bg: rgba(225, 48, 108, 0.1);
+  --card-border: rgba(225, 48, 108, 0.2);
+  --card-shadow: rgba(225, 48, 108, 0.1);
+}
+
+.instagram .platform-icon svg {
+  stroke: #e1306c;
+}
+
+/* GitHub Styling */
+.github {
+  --card-bg: rgba(36, 41, 46, 0.1);
+  --card-border: rgba(36, 41, 46, 0.2);
+  --card-shadow: rgba(36, 41, 46, 0.1);
+}
+
+.github .platform-icon svg {
+  stroke: #24292e;
+}
+
+/* Hover Effects */
+.platform-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px var(--card-shadow);
+}
+
+/* Dark/Light Mode Variables */
+:root {
+  --section-bg: transparent;
+  --accent-color: #ff6ec7;
+  --text-primary: #f8fafc;
+  --text-secondary: #a0aec0;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --card-border: rgba(255, 255, 255, 0.2);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode {
+  --text-primary: #2c3e50;
+  --text-secondary: #4a5568;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --card-border: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .find-me-section {
+    padding: 3rem 0;
+  }
+  
+  .social-platforms {
+    gap: 1.5rem;
+  }
+  
+  .platform-card {
+    width: 140px;
+    padding: 1.25rem;
+  }
+}
+/* GitHub Card - Light Blue Version */
+.github {
+  --card-bg: rgba(100, 181, 246, 0.1);  /* Light blue background */
+  --card-border: rgba(100, 181, 246, 0.3);  /* Light blue border */
+  --card-shadow: rgba(100, 181, 246, 0.1);  /* Light blue shadow */
+}
+
+.github .platform-icon svg {
+  stroke: #64b5f6;  /* Material Light Blue 300 */
+}
+
+/* Hover effect for GitHub */
+.github:hover {
+  --card-shadow: rgba(100, 181, 246, 0.2);
+}
+
+/* Keep Instagram styling the same */
+.instagram {
+  --card-bg: rgba(225, 48, 108, 0.1);
+  --card-border: rgba(225, 48, 108, 0.3);
+  --card-shadow: rgba(225, 48, 108, 0.1);
+}
+
+.instagram .platform-icon svg {
+  stroke: #e1306c;
+}
+
+/* Dark mode adjustments */
+.dark-mode .github {
+  --card-bg: rgba(100, 181, 246, 0.15);
+  --card-border: rgba(100, 181, 246, 0.25);
+}
+
+.light-mode .github {
+  --card-bg: rgba(100, 181, 246, 0.08);
+  --card-border: rgba(100, 181, 246, 0.2);
 }
