@@ -1183,7 +1183,14 @@ body.light-mode .about-part:hover {
   box-shadow: 0 6px 15px rgba(255, 64, 129, 0.6);
 }
 
-/* 📬 Contact Section */
+/* More targeted spacing adjustment */
+#find-me {
+  padding-bottom: 0.5rem !important; /* Reduce bottom space */
+}
+
+#contact {
+  padding-top: 1rem !important; /* Reduce top space */
+}
 #contact {
   padding: 100px 10%;
   text-align: center;
